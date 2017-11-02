@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="javascripts/avalon.js"></script>
+    <style>
+          .aa{
+              border: 1px solid red;
+          }
+    </style>
+</head>
+<body>
+       <!--avalon新版本的ms可以用：代替-->
+       <div :controller="box" ms-css={width:w,height:h} class="aa">
+           <p>{{aa}}</p>
+           <p>{{b|uppercase}}</p>
+           <p ms-html="c+w"></p>
+           <p ms-text="c"></p>
+           <div :controller="boxtwo" class="aa" ms-css={width:w,height:h}>
+                 <p>{{aa}}</p>
+                 <p>{{bb}}</p>
+                 <p ms-html="cc"></p>
+                 <p ms-text="cc"></p>
+           </div>
+       </div>
+       <script>
+//           .ms-controller{
+//               visibility:visible;
+//           }
+              var vm=avalon.define({
+                   $id:"box",
+                   w:400,
+                   h:400,
+                   aa:"safdsf",
+                   b:"sdkjfhek",
+                   c:"<p>ewro2i3o</p>"
+              })
+              var vm=avalon.define({
+                  $id:"boxtwo",
+                  w:300,
+                  h:300,
+                  cc:"<p>as,jfdnsj</p>"
+              })
+       </script>
+</body>
+</html>

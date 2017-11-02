@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="javascripts/avalon.js"></script>
+</head>
+<body ms-controller="box">
+<script>
+        var vm=avalon.define({
+              $id:"box",
+              a:function () {
+                  alert("aa");
+              },
+              b:function () {
+                  alert("bbb");
+              },
+              c:function () {
+                  alert("ccc");
+              }
+        })
+</script>
+      <div style="width: 50px;height: 50px;background-color: pink;" ms-click-1="a" ms-click-2="b" ms-click-3="c">点击</div>
+</body>
+</html>

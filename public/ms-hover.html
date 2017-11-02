@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="javascripts/avalon.js"></script>
+    <style>
+            span{
+                display: block;
+                width: 200px;
+                height:40px;
+                border: 1px solid red;
+            }
+            .aaa{
+                background-color: pink;
+            }
+            .bbb{
+                font-size: 24px;
+            }
+            .ccc{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+<!--用于类实现:hover伪类的效果, 当用户鼠标移动元素上方时添加几个类名, 鼠标移走时将刚才的 类名移除-->
+         <script>
+                var vm =avalon.define({
+                    $id:"box",
+                    aaa: "aaa bbb ccc"
+                })
+         </script>
+         <div ms-controller="box">
+             <span :hover="@aaa">asfesfe</span>
+             <span></span>
+             <span></span>
+             <span></span>
+         </div>
+         <!--<body ms-controller="test">-->
+         <!--<script>-->
+             <!--avalon.define({-->
+                 <!--$id: 'test',-->
+                 <!--aaa: "aaa bbb ccc",-->
+                 <!--bbb: 'ddd',-->
+                 <!--ccc: ['xxx', 'yyy', 'zzz'],-->
+                 <!--ddd: 'eee',-->
+                 <!--toggle: true,-->
+                 <!--toggle2: false-->
+             <!--})-->
+
+         <!--</script>-->
+
+         <!--<span :hover="@aaa">直接引用字符串</span>-->
+         <!--<span :hover="@ccc">直接引用数组</span>-->
+         <!--<span :hover="[@aaa, @bbb,'kkk']">使用对象字面量</span>-->
+         <!--<span :hover="['aaa', 'bbb',(@toggle? 'ccc':'ddd')]">选择性添加类名</span>-->
+         <!--<span :hover="[@toggle && 'aaa']">选择性添加类名</span>-->
+         <!--<span :hover="[ @ddd + 4]">动态生成类名</span>-->
+         <!--</body>-->
+</body>
+</html>

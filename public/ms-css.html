@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="javascripts/avalon.js"></script>
+</head>
+<body ms-controller="test">
+<script>
+    avalon.define({
+        $id: 'test',
+        obj: {backgroundColor: '#3bb0d0',width:300, height:50, 'text-align': 'center'},//属性名带-,必须用引号括起
+        active: {color: 'red'},
+        width:  300,
+        height: 60,
+        toggle: true,
+        array: [{width:100},{height:50},{border: '1px solid #5cb85c'}]
+    })
+    var vm=avalon.define({
+        $id:"box",
+        aa:{width:100,height:100,backgroundColor:"red","text-align":"center"},
+        bb:[{width:100,height:100,backgroundColor:"red","text-align":"center"}]
+    })
+</script>
+    <div ms-css="@obj">直接引用对象</div>
+    <div :css="{width: @width, height: @height,background: 'pink'}">使用对象字面量</div>
+    <div :css="@array">直接引用数组</div>
+    <div :css="[@obj, @toggle && @active ]" :click="@toggle = !@toggle">选择性添加多余属性或重写已有属性</div>
+    <div ms-controller="box">
+            <p ms-css="aa">ask.dj</p>
+            <p ms-css="bb">sdfs</p>
+    </div>
+</body>
+</html>

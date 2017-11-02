@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="javascripts/avalon.js"></script>
+    <style>
+           *{
+               margin: 0px;
+               padding:0px;
+           }
+           .ab{
+               border: 1px solid red;
+           }
+    </style>
+</head>
+<body>
+<body ms-controller="test">
+<script>
+    avalon.define({
+        $id: 'test',
+        obj: {title: '普通 ', algin: 'right'},
+        active: {title: '激活'},
+        width: 111,
+        height: 222,
+        arr: [{img: '3885730_124701000519_2.jpg'}, {img: '3885730_124701000519_2.jpg'}, {img: '3885730_124701000519_2.jpg'}],
+        path: 'images/3885730_124701000519_2.jpg',
+        toggle: false,
+        array: [{width: 1}, {height: 2}]
+    })
+    var vm=avalon.define({
+           $id:"boxx",
+           aa:[{tile:'电视剧'},{tile:'不大好'},{tile:'亢撒大家'}],
+           w:200,
+           path:'images/3885730_124701000519_2.jpg'
+    })
+</script>
+        <span ms-attr="obj">直接引用对象</span>
+        <img style="width: 100px;height: 100px;display: block;" ms-attr="{src:path}" />
+        <ul>
+            <li  ms-for="el in @arr"><a ms-attr="{href:'images'+ el.img}" >下载</a></li>
+        </ul>
+        <span :attr="{width: @width, height: @height}">使用对象字面量</span><br/>
+        <span :attr="@array">直接引用数组</span><br/>
+        <span :attr="[@obj, @toggle && @active ]" :click="@toggle = !@toggle">选择性添加多余属性或重写已有属性</span>
+        <div ms-controller="boxx">
+            <ul ms-for="a in aa">
+                <li class="ab" ms-css={width:w}>{{a.tile}}</li>
+            </ul>
+            <img class="ab" alt="" ms-attr="{src:path}">
+        </div>
+</body>
+</html>

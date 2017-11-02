@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="javascripts/avalon.js"></script>
+</head>
+<body :controller="test">
+<script>
+    var vm = avalon.define({
+        $id: "test",
+        aaa: "这是被隐藏的内容",
+        toggle: false,
+        bool:false
+    })
+</script>
+<!--通过属性值决定是否渲染目标元素, 为否时原位置上变成一个注释节点-->
+         <p><button type="button" :click='@toggle = !@toggle'>点我</span></button></p>
+         <div :if="@toggle">{{aaa}}</div>
+         <div style="width: 50px;height: 20px;border: 1px solid red;text-align: center" :click='bool=!bool'>23</div>
+         <div :if="@bool">{{aaa}}</div>
+</body>
+</html>

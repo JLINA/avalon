@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="javascripts/avalon.js"></script>
+    <meta http-equiv="refresh" content="20">
+</head>
+<body>
+     <div ms-controller="box">
+         <!--ms-css-->
+       <div style="background-color: pink;" ms-css={width:w,height:h} ms-click="clickme">高</div>
+       <p>{{w}}</p><p>{{h}}</p>
+         <!--双向数据绑定-->
+       <input type="text" ms-duplex="w">
+       <input type="text" ms-duplex="h">
+         <select ms-duplex="value">
+             <option value="red">红</option>
+             <option value="green">绿</option>
+             <option value="pink">粉</option>
+             <option value="yellow">黄</option>
+         </select>
+         <div style="border-right: 1px solid red;" ms-css={width:w,hright:h,background:value}>12312</div>
+         <div ms-include-src="'index.html'"></div>
+     </div>
+       <script>
+               var vm=avalon.define({
+                    $id:"box",
+                    w:10,
+                    h:10,
+                   clickme:function () {
+                       vm.w=parseInt(vm.w)+10;
+                       vm.h=parseInt(vm.h)+10;
+                   },
+                   value: "red"
+               })
+       </script>
+</body>
+</html>

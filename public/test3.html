@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="javascripts/avalon.js"></script>
+    <style>
+          *{
+              margin: 0px;
+              padding: 0px;
+          }
+          .aa{
+              background-color: pink;
+              width: 100px;
+              height:100px;
+          }
+        .bb{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<script>
+
+    var vm = avalon.define({
+        $id: "test",
+        text: "<b> 1111  </b>",
+        w:200
+    });
+    setTimeout(function () {
+        vm.h=200
+    },1000)
+</script>
+<div class="bb" ms-css={width:w,height:h} ms-controller="test">
+    <div class="aa"><em>用于测试是否被测除</em>xxxx{{text}}yyyy</div>
+    <div><em>用于测试是否被测除</em>xxxx{{text|html}}yyyy</div>
+    <div ms-text="text"><em>用于测试是否被测除</em>xxxx yyyy</div>
+    <div ms-html="text"><em>用于测试是否被测除</em>xxxx yyyy</div>
+    <!--<div class="aa">wehfjr</div>-->
+</div>
+</body>
+</html>

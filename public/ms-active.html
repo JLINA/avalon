@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="javascripts/avalon.js"></script>
+    <style>
+        span{
+            display: block;
+        }
+        .aaa{
+            border: 1px solid red;
+        }
+        .bbb{
+            background-color: paleturquoise;
+        }
+        .ccc{
+            width: 200px;
+        }
+        .xxx{
+            background-color:springgreen;
+            text-align: center;
+        }
+        .yyy{
+            width: 300px;
+            text-align: right;
+        }
+        .zzz{
+            height:60px;
+        }
+        .eee4{
+            background-color: #2e9adc;
+            width: 200px;
+        }
+    </style>
+</head>
+<body ms-controller="test">
+<script>
+    avalon.define({
+        $id: 'test',
+        aaa: "aaa bbb ccc",
+        bbb: 'ddd',
+        ccc: ['xxx', 'yyy', 'zzz'],
+        ddd: 'eee',
+        toggle: true,
+        toggle2: false
+    })
+</script>
+<!--为元素添加:active效果,当元素被点击时添加几个类名, 鼠标弹起后则立即移除-->
+<span :active="@aaa">直接引用字符串</span>
+<span :active="@ccc">直接引用数组</span>
+<span :active="[@aaa, @bbb]">使用数组字面量</span>
+<span :active="['aaa', 'bbb',(@toggle? 'ccc':'ddd')]">选择性添加类名</span>
+<span :active="[@toggle && 'aaa']">选择性添加类名</span>
+<span :active="[ @ddd + 4]">动态生成类名</span>
+</body>
+</html>
